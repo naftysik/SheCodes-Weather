@@ -9,6 +9,7 @@
   margin: 20px auto;
   max-width: 600px;
   border-radius: 10px;
+  margin-bottom: 0px;
 }
 .navbar {
   padding: 15px;
@@ -43,4 +44,7 @@ ul {
 }
 #emoji {
   font-size: 50px;
+}
+#contact {
+  margin-left: 400px;
 }
