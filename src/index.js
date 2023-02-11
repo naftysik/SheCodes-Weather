@@ -1,5 +1,3 @@
-import axios from "axios";
-
 let currentDate = new Date();
 
 function formatDate(currentDate) {
