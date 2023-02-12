@@ -29,6 +29,10 @@ ul {
   line-height: 1;
 }
 
+#location-search {
+  margin-right: 7px;
+}
+
 #celcius,
 #fahrenheit {
   position: relative;
