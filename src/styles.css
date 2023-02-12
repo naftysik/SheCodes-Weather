@@ -35,9 +35,9 @@ ul {
   top: -32px;
   cursor: pointer;
 }
-#celcius :hover,
-#fahrenheit :hover {
-  color: red;
+#celcius:hover,
+#fahrenheit:hover {
+  color: blue;
 }
 .week {
   padding: 20px;
@@ -45,6 +45,7 @@ ul {
 #emoji {
   font-size: 50px;
 }
-#contact {
-  text-align: center;
+.weather-app-wrap {
+  max-width: 600px;
+  margin: 30px auto;
 }

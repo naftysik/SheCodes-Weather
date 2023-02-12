@@ -26,107 +26,108 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <div class="row cities" id="headCity">
-          <div id="firstCity" class="col-2">Kyiv</div>
-          <div id="secondtCity" class="col-3">Warsaw</div>
-          <div id="thurdCity" class="col-2">Paris</div>
-          <div id="fourthCity" class="col-2">London</div>
-        </div>
-        <nav class="navbar bg-body-tertiary">
-          <div class="container-fluid">
-            <form id="city-search" class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Enter a city"
-                aria-label="Search"
-                autofocus
-                id="inputed-city"
-              />
-              <input
-                id="location-search"
-                type="submit"
-                value="Search"
-                class="btn btn-primary"
-              />
-              <input
-                id="current-location"
-                type="submit"
-                value="Current"
-                class="btn btn-success"
-              />
-            </form>
+      <div class="weather-app-wrap">
+        <div class="weather-app">
+          <div class="row cities" id="headCity">
+            <div id="firstCity" class="col-2">Kyiv</div>
+            <div id="secondtCity" class="col-3">Warsaw</div>
+            <div id="thurdCity" class="col-2">Paris</div>
+            <div id="fourthCity" class="col-2">London</div>
           </div>
-        </nav>
+          <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <form id="city-search" class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Enter a city"
+                  aria-label="Search"
+                  autofocus
+                  id="inputed-city"
+                />
+                <input
+                  id="location-search"
+                  type="submit"
+                  value="Search"
+                  class="btn btn-primary"
+                />
+                <input
+                  id="current-location"
+                  type="submit"
+                  value="Current"
+                  class="btn btn-success"
+                />
+              </form>
+            </div>
+          </nav>
 
-        <div class="time">
-          <h2 id="user-inputed-city" class="cityName">Kyiv</h2>
-          <ul>
-            <li id="current-date">Saturday 20:30</li>
-            <li id="condition">Clouds</li>
-          </ul>
+          <div class="time">
+            <h2 id="user-inputed-city" class="cityName">Kyiv</h2>
+            <ul>
+              <li id="current-date">Saturday 20:30</li>
+              <li id="condition">Clouds</li>
+            </ul>
+          </div>
+          <div class="row">
+            <div class="col-6" id="degree-number">
+              <span class="cloud" id="emoji">🌥️</span
+              ><span id="temperature">17</span><span id="celcius">°C </span
+              ><span id="fahrenheit">°F </span>
+            </div>
+            <div class="col-6">
+              <ul>
+                <li>Precipitation: <span id="humidity">98</span>%</li>
+                <li>Wind: <span id="wind">5</span>km/h</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row week">
+            <div class="col-2">
+              <ul>
+                <li>Sun</li>
+                <li>⛅</li>
+                <li>17°</li>
+              </ul>
+            </div>
+            <div class="col-2">
+              <ul>
+                <li>Mon</li>
+                <li>🌦</li>
+                <li>13°</li>
+              </ul>
+            </div>
+            <div class="col-2">
+              <ul>
+                <li>Tue</li>
+                <li>⛅</li>
+                <li>14°</li>
+              </ul>
+            </div>
+            <div class="col-2">
+              <ul>
+                <li>Wed</li>
+                <li>🌤</li>
+                <li>15°</li>
+              </ul>
+            </div>
+            <div class="col-2">
+              <ul>
+                <li>Thu</li>
+                <li>⛈</li>
+                <li>16°</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="row">
-          <div class="col-6" id="degree-number">
-            <span class="cloud" id="emoji">🌥️</span
-            ><span id="temperature">17</span><span id="celcius">°C </span
-            ><span id="fahrenheit">°F </span>
-          </div>
-          <div class="col-6">
-            <ul>
-              <li>Precipitation: <span id="humidity">98</span>%</li>
-              <li>Wind: <span id="wind">5</span>km/h</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row week">
-          <div class="col-2">
-            <ul>
-              <li>Sun</li>
-              <li>⛅</li>
-              <li>17°</li>
-            </ul>
-          </div>
-          <div class="col-2">
-            <ul>
-              <li>Mon</li>
-              <li>🌦</li>
-              <li>13°</li>
-            </ul>
-          </div>
-          <div class="col-2">
-            <ul>
-              <li>Tue</li>
-              <li>⛅</li>
-              <li>14°</li>
-            </ul>
-          </div>
-          <div class="col-2">
-            <ul>
-              <li>Wed</li>
-              <li>🌤</li>
-              <li>15°</li>
-            </ul>
-          </div>
-          <div class="col-2">
-            <ul>
-              <li>Thu</li>
-              <li>⛈</li>
-              <li>16°</li>
-            </ul>
-          </div>
-        </div>
+        <small>
+          <a href="https://github.com/naftysik/SheCodes-Weather" target="blank"
+            >Open-source code</a
+          >
+          by Natalia Tsalko
+        </small>
       </div>
     </div>
-    <p id="contact">
-      <small>
-        <a href="https://github.com/naftysik/SheCodes-Weather" target="blank"
-          >Open-source code</a
-        >
-        by Natalia Tsalko
-      </small>
-    </p>
+
     <script src="src/index.js"></script>
   </body>
 </html>
