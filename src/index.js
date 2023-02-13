@@ -80,15 +80,15 @@ function showTemperature(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-  //
+
+  celsiusTemperature = response.data.main.temp;
+
   let iconElement = document.querySelector("#emoji");
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-
-  //
 }
 
 function retrievePosition(position) {
@@ -124,10 +124,12 @@ searchCity("Kherson");
 function seeFahrenheit(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("#temperature");
-  let temperature = currentTemp.innerHTML;
-  let cityFahrenheit = Math.round(temperature * (9 / 5) + 32);
-  currentTemp.innerHTML = cityFahrenheit;
+
+  let cityFahrenheit = (celsiusTemperature * 9) / 5 + 32;
+  currentTemp.innerHTML = Math.round(cityFahrenheit);
 }
+let celsiusTemperature = null;
+
 function seeCelcius(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("#temperature");
