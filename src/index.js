@@ -64,25 +64,19 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `
-       <div class="col-2">
-         <div class="weather-forecast-date">${formatDay(forecastDay.time)}</div>
-         <img
-           src="    https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
-             forecastDay.condition.icon
-           }.png"
-           alt=""
-           width="42"
-         />
-         <div class="weather-forecast-temperatures">
-           <span class="weather-forecast-temperature-max"> ${
-             forecastDay.temperature.maximum
-           }</span>
-           <span class="weather-forecast-temperature-min"> ${
-             forecastDay.temperature.minimum
-           } </span>
-         </div>
-       </div>
-   `;
+      <div class="col-2">
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+        <img
+          src="http://openweathermap.org/img/wn/50d@2x.png"
+          alt=""
+          width="42"
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max"> 18° </span>
+          <span class="weather-forecast-temperature-min"> 12° </span>
+        </div>
+      </div>
+  `;
     }
   });
 
@@ -92,11 +86,10 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   console.log(coordinates);
-  let apiKey = "ed238469f9b5e9d801834270e65449bc";
+  let apiKey = "46fac47dd8b8fa26d1b6852218ad3dfe";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
-
 //head cities
 
 function changeFirstCity(event) {
@@ -141,6 +134,7 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 
 function retrievePosition(position) {
@@ -195,3 +189,4 @@ let fahrenhait = document.querySelector("#fahrenheit");
 fahrenhait.addEventListener("click", seeFahrenheit);
 
 searchCity("Kherson");
+displayForecast();
