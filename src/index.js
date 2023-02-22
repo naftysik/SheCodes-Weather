@@ -45,6 +45,58 @@ function formatDate(currentDate) {
 let dateNow = document.querySelector("#current-date");
 dateNow.innerHTML = formatDate(currentDate);
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+       <div class="col-2">
+         <div class="weather-forecast-date">${formatDay(forecastDay.time)}</div>
+         <img
+           src="    https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+             forecastDay.condition.icon
+           }.png"
+           alt=""
+           width="42"
+         />
+         <div class="weather-forecast-temperatures">
+           <span class="weather-forecast-temperature-max"> ${
+             forecastDay.temperature.maximum
+           }</span>
+           <span class="weather-forecast-temperature-min"> ${
+             forecastDay.temperature.minimum
+           } </span>
+         </div>
+       </div>
+   `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "ed238469f9b5e9d801834270e65449bc";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 //head cities
 
 function changeFirstCity(event) {
@@ -119,7 +171,6 @@ function handleSubmit(event) {
   searchCity(city);
 }
 
-searchCity("Kherson");
 //temp
 function seeFahrenheit(event) {
   event.preventDefault();
@@ -142,3 +193,5 @@ let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", seeCelcius);
 let fahrenhait = document.querySelector("#fahrenheit");
 fahrenhait.addEventListener("click", seeFahrenheit);
+
+searchCity("Kherson");
